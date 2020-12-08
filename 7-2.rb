@@ -29,10 +29,11 @@ def count_bags(index, bags, result = 0)
   if bags.empty?
     result
   else
-    new_bags = bags.reduce([]) do |s, (amount, colour)|
+    next_bags = bags.reduce([]) do |s, (amount, colour)|
       s + (index[colour] || []).map { |a, c| [a * amount, c] }
     end
-    count_bags(index, new_bags, result + bags.reduce(0) { |sum, (amount, _)| sum + amount})
+    next_result = result + bags.reduce(0) { |sum, (amount, _)| sum + amount}
+    count_bags(index, next_bags, next_result)
   end
 end
 
