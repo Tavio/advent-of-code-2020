@@ -105,10 +105,10 @@ def parenthise_additions(expression, idx = 0)
   end
 end
 
-# part1 = File.readlines('input/18.txt')
-#           .map { |expr| run(expr) }
-#           .reduce(:+)
-# puts part1
+part1 = File.readlines('input/18.txt')
+          .map { |expr| run(expr) }
+          .reduce(:+)
+puts part1
 
 part2 = File.readlines('input/18.txt')
           .map { |expr| run(expr, true) }
